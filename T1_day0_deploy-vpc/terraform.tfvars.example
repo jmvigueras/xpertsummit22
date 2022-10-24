@@ -1,0 +1,7 @@
+##############################################################################################################
+# IMPORTANT - Update with provided Access key and secret key
+##############################################################################################################
+// AWS Environment
+access_key          = "<AWS Access Key>"
+secret_key          = "<AWS Secret Key>"
+externalid_token    = "<ExternalID token>"
