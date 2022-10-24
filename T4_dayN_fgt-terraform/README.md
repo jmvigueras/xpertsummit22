@@ -28,7 +28,7 @@ En este entrenamiento realizaremos lo siguiente:
 
 ## Diagram solution
 
-![architecture overview](images/images/image0.png)
+![architecture overview](images/image0.png)
 
 
 ## Pasos a seguir:
@@ -83,9 +83,9 @@ get router info bgp neighbors 10.10.20.254 ro
 diagnose sniffer packet any '<host IPServidor>' 4
 ```
 
-![diagnose connection](images/images/image7-4-1.png)
+![diagnose connection](images/image7-4-1.png)
 
-![diagnose connection](images/images/image7-4-2.png)
+![diagnose connection](images/image7-4-2.png)
 
 * 8. Comandos Terraform para despliegue
 
