@@ -1,4 +1,5 @@
-# Xpert Summit 2022 - Automation Cloud training
+# Xpert Summit 2022
+# Automation Cloud training
 ## Objetivo del laboratorio
 El objetivo de este laboritorio es dar nociones sobre como desplegar una infraestructura relativamente compleja de hub y spoke en AWS. Además de dar idea de cómo poder operar un firewall Fortigate a través de su API. Durante el laboratio te familizaras con el entorno Terraform y como lanzar y customizar los despligues. 
 
@@ -27,29 +28,31 @@ En este entrenamiento realizaremos lo siguiente:
 ![architecture overview](images/images/image0.png)
 
 
+# LAB
 ## Pasos a seguir:
 
-# 1. Conexión al entorno de desarrollo Cloud9
+## 1. Conexión al entorno de desarrollo Cloud9
 - (Revisar pasos laboratorio T1)
 
-# 2. Clonar repositorio Git
+## 2. Clonar repositorio Git
 - (Revisar pasos laboratorio T1)
 
-# 3.  Acceder a la carpeta T2_day0_deploy-server
+## 3.  Acceder a la carpeta T2_day0_deploy-server
 - Abrir un nuevo terminal y entrar en la carpeta del laboratorio
 ```
 cd T2_day0_deploy-vpc
 ```
 - Desde el navegador de ficheros de la parte izquierda desdplegando la carpeta corrspondiente al T2
 
-* 4. **IMPORTANTE** Debes haber completado con éxito el laboratorio T1 para continuar
+## 4. **IMPORTANTE** - Debes haber completado con éxito el laboratorio T1 para continuar
 - Las variables necesarias para este laboratorio se importan del anterior.
 - Las credendiales progrmáticas ACCESS_KEY y SECRET_KEY también se importan del lab anterior.
 - Cambiar el nombre al fichero `terraform.tfvars.example` a `terraform.tfvars`
 
-* 6. Revisión de la estructura y de los diferentes ficheros (NO ES NECESARIO REALIZAR NINGUNA CONFIGURACIÓN ADICIONAL)
+## 6. Revisión de la estructura y de los diferentes ficheros
+(NO ES NECESARIO REALIZAR NINGUNA CONFIGURACIÓN ADICIONAL)
 
-* 7. **Despligue** 
+## 7. **Despligue** 
 
 * Inicialización de providers y modulos:
   ```sh
@@ -68,7 +71,7 @@ cd T2_day0_deploy-vpc
 
 
 
-# Support
+## Support
 This a personal repository with goal of testing and demo Fortinet solutions on the Cloud. No support is provided and must be used by your own responsability. Cloud Providers will charge for this deployments, please take it in count before proceed.
 
 ## License

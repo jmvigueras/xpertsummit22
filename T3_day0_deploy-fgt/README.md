@@ -1,4 +1,5 @@
-# Xpert Summit 2022 - Automation Cloud training
+# Xpert Summit 2022
+# Automation Cloud training
 ## Objetivo del laboratorio
 El objetivo de este laboritorio es dar nociones sobre como desplegar una infraestructura relativamente compleja de hub y spoke en AWS. Además de dar idea de cómo poder operar un firewall Fortigate a través de su API. Durante el laboratio te familizaras con el entorno Terraform y como lanzar y customizar los despligues. 
 
@@ -18,7 +19,7 @@ http://xpertsummit22.jvigueras-fortinet-site.com
 En este entrenamiento realizaremos lo siguiente:
 - **IMPORTANTE** se debe haber completado con éxito el laboratorio T1
 - Las variables necesarias para poder realizar el despliegue de la IaC se recogen del entrenamiento T1
-- En este lab se realizará el despligue de un Fortigate en la última versión disponible en el ![AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wory773oau6wq?sr=0-1&ref_=beagle&applicationId=AWSMPContessa) (7.2.2) en modo PAYG.
+- En este lab se realizará el despligue de un Fortigate en la última versión disponible en el [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wory773oau6wq?sr=0-1&ref_=beagle&applicationId=AWSMPContessa) (7.2.2) en modo PAYG.
 - El firewall se despliega con una configuración básica para poder acceder via https y también de forma programatica via API.
 - El detalle necesario para poder acceder al fortigate se pueden obtener de la salida de Terraform cuando se realice.
 
@@ -28,29 +29,31 @@ En este entrenamiento realizaremos lo siguiente:
 ![architecture overview](images/images/image0.png)
 
 
+# LAB
 ## Pasos a seguir:
 
-# 1. Conexión al entorno de desarrollo Cloud9
+## 1. Conexión al entorno de desarrollo Cloud9
 - (Revisar pasos laboratorio T1)
 
-# 2. Clonar repositorio Git
+## 2. Clonar repositorio Git
 - (Revisar pasos laboratorio T1)
 
-# 3.  Acceder a la carpeta T3_day0_deploy-fgt
+## 3.  Acceder a la carpeta T3_day0_deploy-fgt
 - Abrir un nuevo terminal y entrar en la carpeta del laboratorio
 ```
 cd T3_day0_deploy-fgt
 ```
 - Desde el navegador de ficheros de la parte izquierda desdplegando la carpeta corrspondiente al T3
 
-* 4. **IMPORTANTE** Debes haber completado con éxito el laboratorio T1 para continuar
+## 4. **IMPORTANTE** Debes haber completado con éxito el laboratorio T1 para continuar
 - Las variables necesarias para este laboratorio se importan del anterior.
 - Las credendiales progrmáticas ACCESS_KEY y SECRET_KEY también se importan del lab anterior.
 - Cambiar el nombre al fichero `terraform.tfvars.example` a `terraform.tfvars`
 
-* 6. Revisión de la estructura y de los diferentes ficheros (NO ES NECESARIO REALIZAR NINGUNA CONFIGURACIÓN ADICIONAL)
+## 6. Revisión de la estructura y de los diferentes ficheros
+(NO ES NECESARIO REALIZAR NINGUNA CONFIGURACIÓN ADICIONAL)
 
-* 7. **Despligue** 
+## 7. **Despligue** 
 
 * Inicialización de providers y modulos:
   ```sh
@@ -73,7 +76,7 @@ Output will include the information necessary to log in to the FortiGate-VM inst
 Outputs:
 
 
-# Support
+## Support
 This a personal repository with goal of testing and demo Fortinet solutions on the Cloud. No support is provided and must be used by your own responsability. Cloud Providers will charge for this deployments, please take it in count before proceed.
 
 ## License
