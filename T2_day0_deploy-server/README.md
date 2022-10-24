@@ -25,7 +25,7 @@ En este entrenamiento realizaremos lo siguiente:
 
 ## Diagram solution
 
-![architecture overview](images/images/image0.png)
+![architecture overview](./images/image0.png)
 
 
 # LAB

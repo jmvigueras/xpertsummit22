@@ -23,10 +23,9 @@ En este laboratorio T1, se desplegarán los siguientes recursos:
 - 3 x network interfaces para el Fortigate.
 - 1 x netwokr interface para el servidor de testeo.
 
-## Diagrama de la solución
+## Diagrama del laboratorio
 
-![architecture overview](images/images/image0.png)
-
+![architecture overview](./images/image0.png)
 
 
 # LAB

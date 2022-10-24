@@ -85,13 +85,13 @@ get router info bgp neighbors 10.10.20.254 ro
 
 diagnose sniffer packet any '<host IPServidor>' 4
 ```
-![diagnose connection](images/image7-4-1.png)
+![diagnose routing](./images/image7-4-1.png)
 
-![diagnose connection](images/image7-4-2.png)
+![diagnose routing](./images/image7-4-2.png)
 
-* 8. Comandos Terraform para despliegue
+## 8. Comandos Terraform para despliegue
 
-* Inicialización de providers y modulos:
+## Inicialización de providers y modulos:
   ```sh
   $ terraform init
   ```
