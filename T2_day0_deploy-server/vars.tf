@@ -13,33 +13,33 @@ data "terraform_remote_state" "T1_day0_deploy-vpc" {
 
 // Imported Tags
 variable "tags" {
-   default = data.terraform_remote_state.T1_day0_deploy-vpc.tags
+   default = null
 }
 
 // Imported Region
 variable "region" {
-   default = data.terraform_remote_state.T1_day0_deploy-vpc.region
+   default = null
 }
 
 // Server Elastic Interface 
 variable eni-server {
-  default = data.terraform_remote_state.T1_day0_deploy-vpc.eni-server
+  default = null
 }
 
 // key-pair name
 variable  key-pair_name {
   type        = string
-  default     = data.terraform_remote_state.T1_day0_deploy-vpc.key-pair_name
+  default     = null
 }
 
 variable account_id {
   type        = string
-  default     = data.terraform_remote_state.T1_day0_deploy-vpc.account_id
+  default     = null
 }      
 
 variable externalid_token {
   type        = string
-  default     = data.terraform_remote_state.T1_day0_deploy-vpc.externalid_token
+  default     = null
 }  
 
 // Access and secret keys to your environment

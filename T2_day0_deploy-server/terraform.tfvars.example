@@ -4,3 +4,16 @@
 ##############################################################################################################
 access_key       = data.terraform_remote_state.T1_day0_deploy-vpc.account_id
 secret_key       = data.terraform_remote_state.T1_day0_deploy-vpc.secret_key
+
+// Imported Tags
+tags  = data.terraform_remote_state.T1_day0_deploy-vpc.tags
+// Imported Region
+region  = data.terraform_remote_state.T1_day0_deploy-vpc.region
+// Server Elastic Interface 
+eni-server  = data.terraform_remote_state.T1_day0_deploy-vpc.eni-server
+// key-pair name
+key-pair_name  = data.terraform_remote_state.T1_day0_deploy-vpc.key-pair_name
+// accountid
+account_id = data.terraform_remote_state.T1_day0_deploy-vpc.account_id   
+// External token name
+externalid_token = data.terraform_remote_state.T1_day0_deploy-vpc.externalid_token
