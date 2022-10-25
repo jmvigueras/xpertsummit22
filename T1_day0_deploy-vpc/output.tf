@@ -44,7 +44,7 @@ output "region" {
 }
 
 output "key-pair_name" {
-  value = aws_key_pair.user-kp.key_name
+  value = aws_key_pair.user-kp[0].key_name
 }
 
 output "vpc-golden_cidr" {

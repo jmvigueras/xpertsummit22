@@ -7,7 +7,7 @@
 resource "aws_security_group" "nsg-vpc-sec-mgmt" {
   name        = "${var.tags["Name"]}-nsg-vpc-sec-mgmt"
   description = "Allow MGMT SSH, HTTPS and ICMP traffic"
-  vpc_id      = aws_vpc.vpc-sec.id
+  vpc_id      = aws_vpc.vpc-spoke.id
 
   ingress {
     from_port   = 22 # SSH port
@@ -52,7 +52,7 @@ resource "aws_security_group" "nsg-vpc-sec-mgmt" {
 resource "aws_security_group" "nsg-vpc-sec-public" {
   name        = "${var.tags["Name"]}-nsg-vpc-sec-public"
   description = "Allow IPSEC ADVPN"
-  vpc_id      = aws_vpc.vpc-sec.id
+  vpc_id      = aws_vpc.vpc-spoke.id
 
   ingress {
     from_port   = 500 # UDP port IPSEC
@@ -97,7 +97,7 @@ resource "aws_security_group" "nsg-vpc-sec-public" {
 resource "aws_security_group" "nsg-vpc-sec-private" {
   name        = "${var.tags["Name"]}-nsg-vpc-sec-private"
   description = "Allow ICMP"
-  vpc_id      = aws_vpc.vpc-sec.id
+  vpc_id      = aws_vpc.vpc-spoke.id
 
   ingress {
     from_port   = 8 # the ICMP type number for 'Echo'
@@ -129,7 +129,7 @@ resource "aws_security_group" "nsg-vpc-sec-private" {
 resource "aws_security_group" "nsg-vpc-sec-servers" {
   name        = "${var.tags["Name"]}-nsg-vpc-sec-servers"
   description = "Allow SSH, HTTP/HTTPS and ICMP traffic"
-  vpc_id      = aws_vpc.vpc-sec.id
+  vpc_id      = aws_vpc.vpc-spoke.id
 
   ingress {
     from_port   = 22 # SSH port
