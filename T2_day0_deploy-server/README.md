@@ -14,7 +14,7 @@ http://xpertsummit22.jvigueras-fortinet-site.com
 * T3_day0_deploy-fgt: despligue de Fortigate standalone en region AZ1
 * T4_dayN_fgt-terraform: actualiación de configuraicón del Fortigate mediante Terraform
 
-## Deployment Overview
+## Resumen puesta en marcha
 
 En este entrenamiento realizaremos lo siguiente:
 - **IMPORTANTE** se debe haber completado con éxito el lab T1 

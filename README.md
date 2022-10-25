@@ -8,13 +8,39 @@ El formato del laboratorio consiste en 4 entrenamiento diferenciados, que van de
 Los detalles necesarios para poder realizar el curso se encuentra en: 
 http://xpertsummit22.jvigueras-fortinet-site.com
 
-## Indice de entramientos a completar
+## Indice de laboratorios a completar
 * T1_day0_deploy-vpc: despliegue del entorno básico en AWS
 * T2_day0_deploy-server: despliegue del servidor de test en spoke
 * T3_day0_deploy-fgt: despligue de Fortigate standalone en region AZ1
-* **T4_dayN_fgt-terraform**: actualiación de configuraicón del Fortigate mediante Terraform
+* T4_dayN_fgt-terraform: actualiación de configuraicón del Fortigate mediante Terraform
 
 ## Deployment Overview
+
+## T1: [T1_day0_deploy-vpc](./T1_day0_deploy-vpc)
+En este laboratorio T1, se desplegarán los siguientes recursos:
+- Para el rango CIDR se usará el proporcionado a cada participante.
+- 1 VPC con 4 subnets: Management, Public, Private y Servers
+- Los Security Groups que se asociarán a cada una de las interfaces.
+- 3 x network interfaces para el Fortigate.
+- 1 x netwokr interface para el servidor de testeo.
+
+## T2: [T2_day0_deploy-server](./T2_day0_deploy-server)
+En este entrenamiento realizaremos lo siguiente:
+- **IMPORTANTE** se debe haber completado con éxito el lab T1 
+- Las variables necesarias para poder realizar el despliegue se actualizan con el anterior laboratorio T1_day0_deploy-pvc
+- En este lab se realizará el despligue de un servidor en la subnet de servidores desplegada en la VPC
+- El servidor de test se despliega con un servicio básico de servidor HTTP sobre el que servidor de la VPC estará lanzando las comprobaciones de conexión.
+
+## T3: [T3_day0_deploy-fgt](./T3_day0_deploy-fgt)
+
+En este entrenamiento realizaremos lo siguiente:
+- **IMPORTANTE** se debe haber completado con éxito el laboratorio T1
+- Las variables necesarias para poder realizar el despliegue de la IaC se recogen del entrenamiento T1
+- En este lab se realizará el despligue de un Fortigate en la última versión disponible en el [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wory773oau6wq?sr=0-1&ref_=beagle&applicationId=AWSMPContessa) en modo PAYG.
+- El firewall se despliega con una configuración básica para poder acceder via https y también de forma programatica via API.
+- El detalle necesario para poder acceder al fortigate se pueden obtener de la salida de Terraform cuando se realice.
+
+## T4: [T4_dayN_fgt-terraform](./T4_dayN_fgt-terraform)
 
 En este entrenamiento realizaremos lo siguiente:
 - **IMPORTANTE** se debe haber completado con éxito el laboratorio: T1, T2 y T3
@@ -36,58 +62,25 @@ En este entrenamiento realizaremos lo siguiente:
 ## Pasos a seguir:
 
 ## 1. Conexión al entorno de desarrollo Cloud9
-- (Revisar pasos laboratorio T1)
+- (Revisar detalle de pasos en laboratorio T1)
 
 ## 2. Clonar repositorio Git
-- (Revisar pasos laboratorio T1)
+- (Revisar detalle de pasos en laboratorio T1)
 
-## 3.  Acceder a la carpeta T4_dayN_fgt-terraform
+## 3.  Acceder a la carpeta del laboratorio correspondiente
 - Abrir un nuevo terminal y entrar en la carpeta del laboratorio
 ```
-cd T4_dayN_fgt-terraform
+cd T1_day0_deploy-vpc
 ```
-- Desde el navegador de ficheros de la parte izquierda desplegando la carpeta correspondiente al T4
+- Desde el navegador de ficheros de la parte izquierda desplegando la carpeta correspondiente
 
-## 4. **IMPORTANTE** Debes haber completado con éxito el laboratorio T1 para continuar
-- Las variables necesarias para este laboratorio se importan del anterior.
-- Las credendiales progrmáticas ACCESS_KEY y SECRET_KEY también se importan del lab anterior.
+## 4. **IMPORTANTE** Seguir las indicaciones del laboratorio T1
+- Las variables necesarias para este laboratorio se completan en el laboratorio T1
+- Las credendiales y resto de variables se importan desde el laboratorio T1 al resto
 - Cambiar el nombre al fichero `terraform.tfvars.example` a `terraform.tfvars`
 
-## 6. Revisión de la estructura y de los diferentes ficheros
-(NO ES NECESARIO REALIZAR NINGUNA CONFIGURACIÓN ADICIONAL)
-
 ## 7. **Despligue** 
-
-7.1 Creación de nuevo túnel IPSEC ADVPN contra el HUB central
-- Cambiamos el nombre del fichero `1_ipsec-to-golden.tf.example` a `1_ipsec-to-golden.tf`
-- Inicializamos el proceso de despliegue (revisar punto 8)
-- Comprobar desde la GUI del Fortigate el correcto despligue
-
-7.2 Configuración de router BGP
-- Cambiamos el nombre del fichero `2_bgp-route.tf.example` a `2_bgp-route.tf`
-- Inicializamos el proceso de despliegue (revisar punto 8)
-- Comprobaremos que no va a realizar ningún cambio sobre la configuración anterior que hemos desplegado
-- Comprobar desde la GUI del Fortigate el correcto despligue
-
-7.3 Configuración de política de seguridad
-- Cambiamos el nombre del fichero `3_policy-to-server.tf.example` a `3_policy-to-server.tf`
-- Inicializamos el proceso de despliegue (revisar punto 8)
-- Comprobaremos que no va a realizar ningún cambio sobre la configuración anterior que hemos desplegado
-- Comprobar desde la GUI del Fortigate el correcto despligue
-
-7.4 Comprobación de conectividad a HUB
-- Comprobación de la correcta conexión al HUB (Golden VPC)
-```
-get router info bgp summary
-get router info routing-table bgp
-get router info bgp neighbors 10.10.20.254 ad
-get router info bgp neighbors 10.10.20.254 ro
-
-diagnose sniffer packet any '<host IPServidor>' 4
-```
-![diagnose routing](./images/image7-4-1.png)
-
-![diagnose routing](./images/image7-4-2.png)
+- (Seguir las indicaciones de cada laboratorio)
 
 ## 8. Comandos Terraform para despliegue
 
@@ -107,10 +100,11 @@ diagnose sniffer packet any '<host IPServidor>' 4
 * Confirmar despligue, type `yes`.
 
 
-La comprobación de despligue se debe realizar desde la GUI del Fortigate.
+La salida incluye todo el detalle del despligue:
 ```sh
 Outputs:
 ```
+
 
 ## Support
 This a personal repository with goal of testing and demo Fortinet solutions on the Cloud. No support is provided and must be used by your own responsability. Cloud Providers will charge for this deployments, please take it in count before proceed.

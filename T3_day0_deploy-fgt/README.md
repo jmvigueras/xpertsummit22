@@ -14,7 +14,7 @@ http://xpertsummit22.jvigueras-fortinet-site.com
 * **T3_day0_deploy-fgt**: despligue de Fortigate standalone en region AZ1
 * T4_dayN_fgt-terraform: actualiación de configuraicón del Fortigate mediante Terraform
 
-## Deployment Overview
+## Resumen puesta en marcha
 
 En este entrenamiento realizaremos lo siguiente:
 - **IMPORTANTE** se debe haber completado con éxito el laboratorio T1
@@ -71,9 +71,24 @@ cd T3_day0_deploy-fgt
 * Confirmar despligue, type `yes`.
 
 
-Output will include the information necessary to log in to the FortiGate-VM instances:
+La salida incluye el detalle para conectar con el FortiGate:
 ```sh
 Outputs:
+
+Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+lab-server = {
+    "url"           = "https://ip:admin_port"
+    "ip"            = public_ip
+    "admin_port"    = admin_port
+    "api-token"     = api_key
+    "username"      = "admin"
+    "password"      = i-xxxxxx
+}
+
+```
 
 
 ## Support

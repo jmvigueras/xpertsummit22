@@ -14,7 +14,7 @@ http://xpertsummit22.jvigueras-fortinet-site.com
 * T3_day0_deploy-fgt: despligue de Fortigate standalone en region AZ1
 * T4_dayN_fgt-terraform: actualiación de configuraicón del Fortigate mediante Terraform
 
-## Deployment Overview
+## Resumen puesta en marcha
 
 En este laboratorio T1, se desplegarán los siguientes recursos:
 - Para el rango CIDR se usará el proporcionado a cada participante.
@@ -78,7 +78,7 @@ cd T1_day0_deploy-vpc
 - Los datos se deben de obtinen desde el![portal formación](http://xpertsummit22.jvigueras-fortinet-site.com) 
 - Hacer doble click en el fichero **UPDATE-vars.tf** desde el explorador de ficheros.
 - Actualizar las siguientes variables con los datos de cada participante.
-```
+```sh
 // IMPORTANT: UPDATE Owner with your AWS IAM user name
 variable "tags" {
   description = "Attribute for tag Enviroment"
@@ -140,7 +140,7 @@ externalid_token    = "<ExternalID token>"
 ![Terraform output](./images/image7-1.png)
 
 
-# Support
+## Support
 This a personal repository with goal of testing and demo Fortinet solutions on the Cloud. No support is provided and must be used by your own responsability. Cloud Providers will charge for this deployments, please take it in count before proceed.
 
 ## License
