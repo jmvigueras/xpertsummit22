@@ -10,11 +10,11 @@ terraform {
 # Update variable tags in vars.tf and access_key & secret_key in terraform.tfvars
 ##############################################################################################################
 provider "aws" {
-  region     = var.region["region"]
-  access_key = var.access_key
-  secret_key = var.secret_key
+  region     = local.region["region"]
+  access_key = local.access_key
+  secret_key = local.secret_key
   assume_role {
-    role_arn     = "arn:aws:iam::${var.account_id}:role/role-${var.tags["Owner"]}"
-    external_id  = var.externalid_token
+    role_arn     = "arn:aws:iam::${local.account_id}:role/role-${local.tags["Owner"]}"
+    external_id  = local.externalid_token
   }
 }

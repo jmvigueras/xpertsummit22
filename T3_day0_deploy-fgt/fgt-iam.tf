@@ -5,7 +5,7 @@
 
 # Create role
 resource "aws_iam_role" "fgt-sdn_role" {
-  name = "${var.tags["Name"]}-fgt-sdn_role"
+  name = "${local.tags["Name"]}-fgt-sdn_role"
 
   assume_role_policy = <<EOF
 {
@@ -26,13 +26,13 @@ EOF
 
 # Create instance profile
 resource "aws_iam_instance_profile" "fgt-sdn_profile" {
-  name = "${var.tags["Name"]}-fgt-sdn_profile"
+  name = "${local.tags["Name"]}-fgt-sdn_profile"
   role = aws_iam_role.fgt-sdn_role.name
 }
 
 # Create policy with necessary permission for SDN connector (prepared for cluster HA)
 resource "aws_iam_policy" "fgt-sdn_policy" {
-  name        = "${var.tags["Name"]}-fgt-sdn_policy"
+  name        = "${local.tags["Name"]}-fgt-sdn_policy"
   path        = "/"
   description = "Policies for the FGT APICall Role"
 
@@ -60,7 +60,7 @@ EOF
 }
 
 resource "aws_iam_policy_attachment" "fgt-sdn_attach" {
-  name       = "${var.tags["Name"]}-fgt-sdn_attachment"
+  name       = "${local.tags["Name"]}-fgt-sdn_attachment"
   roles      = [aws_iam_role.fgt-sdn_role.name]
   policy_arn = aws_iam_policy.fgt-sdn_policy.arn
 }

@@ -1,3 +1,4 @@
+
 output "server" {
   value = {
     id  = aws_instance.server.id

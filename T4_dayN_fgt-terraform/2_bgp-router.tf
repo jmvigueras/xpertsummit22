@@ -16,7 +16,7 @@ resource "fortios_router_bgp" "bgp" {
         remote_as   = var.vpc-golden_hub["bgp_asn"]
     }
     network {
-        prefix  =  "${cidrhost(var.vpc-spoke_cidr,0)} ${cidrnetmask(var.vpc-spoke_cidr)}"
+        prefix  =  "${cidrhost(local.vpc-spoke_cidr,0)} ${cidrnetmask(local.vpc-spoke_cidr)}"
     }
 }
 

@@ -15,18 +15,32 @@ variable "vpc-golden_hub" {
 
 
 
-
-
 ##############################################################################################################
-# This variables can remain by default
+# Imported variables
 
-// Create local user variable for reference ipsec interface IP 
-// ej. eu-west-1-user1 will have -> 10.10.20.11)
-// ej. eu-west-3-user2 will have -> 10.10.20.32)
 locals {
-  local_advpn_ip = cidrhost(var.vpc-golden_hub["advpn_net"],split("-","${var.tags["Owner"]}")[5]+(10*split("-","${var.region["region"]}")[2]))
-  local_bgp_asn  = "65011"
+  // Create local user variable for reference ipsec interface IP 
+  // ej. eu-west-1-user1 will have -> 10.10.20.11)
+  // ej. eu-west-3-user2 will have -> 10.10.20.32)
+  local_advpn_ip = cidrhost(var.vpc-golden_hub["advpn_net"],split("-","${local.tags["Owner"]}")[5]+(10*split("-","${local.region["region"]}")[2]))
   hub_advpn_i-ip = cidrhost(var.vpc-golden_hub["advpn_net"],254)
+  // Asigned ASN for spokes (don't change)
+  local_bgp_asn  = "65011"
+  // Imported FGT spoke data
+  spoke-fgt = data.terraform_remote_state.T3_day0_deploy-fgt.outputs.spoke-fgt
+  // Imported spoke range
+  vpc-spoke_cidr = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.vpc-spoke_cidr
+  // Imported ACCESS and SECRET KEY
+  access_key = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.access_key
+  secret_key = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.secret_key
+  // Imported Tags
+  tags = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.tags
+  // Imported Region
+  region = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.region
+  // CIDR range Golden VPC
+  vpc-golden_cidr = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.vpc-golden_cidr
+   // External token name -> (USED AS ADVPN PSK)
+  externalid_token = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.externalid_token
 }
 
 // Import data from deployment T1_day0_deploy-vpc
@@ -52,27 +66,5 @@ data "terraform_remote_state" "T3_day0_deploy-fgt" {
     path = "../T3_day0_deploy-fgt/terraform.tfstate"
   }
 }
-
-// FortiGate details deployed in T3
-variable "spoke-fgt" {
-  default = data.terraform_remote_state.T3_day0_deploy-fgt.spoke-fgt
-}
-
-// CIDR range to use for your VCP: 10.1.x.x group 1 - 10.1.1.0/24 user-1
-variable "vpc-spoke_cidr"{
-  default = data.terraform_remote_state.T1_day0_deploy-vpc.vpc-spoke_cidr
-}
-
-// Imported Tags
-variable "tags" {
-   default = data.terraform_remote_state.T1_day0_deploy-vpc.tags
-}
-
-// Imported Region
-variable "region" {
-   default = data.terraform_remote_state.T1_day0_deploy-vpc.region
-}
-
-
 
 

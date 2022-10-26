@@ -1,19 +1,18 @@
 ##############################################################################################################
 # VM LINUX server
 ##############################################################################################################
-
 // Server in subnet Servers
 resource "aws_instance" "server" {
   ami                    = data.aws_ami.server_ami-amazon.id
   instance_type          = "t2.micro"
-  key_name               = var.key-pair_name
+  key_name               = local.key-pair_name
   user_data              = data.template_file.data-server_user-data.rendered
   network_interface {
     device_index         = 0
-    network_interface_id = var.eni-server["id"]
+    network_interface_id = local.eni-server["id"]
   }
 
-  tags = var.tags
+  tags = local.tags
 }
 
 // Retrieve AMI info
@@ -52,6 +51,6 @@ data "aws_ami" "server_ami-amazon" {
 data "template_file" "data-server_user-data" {
   template = file("./templates/server_user-data.tpl")
   vars = {
-    user = var.tags["Owner"]
+    user = local.tags["Owner"]
   }
 }

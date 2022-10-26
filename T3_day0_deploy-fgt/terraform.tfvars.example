@@ -1,6 +1,0 @@
-##############################################################################################################
-# - NOT CHANGE - 
-# (This variables can remain by default - imported from T1)
-##############################################################################################################
-access_key       = data.terraform_remote_state.T1_day0_deploy-vpc.account_id
-secret_key       = data.terraform_remote_state.T1_day0_deploy-vpc.secret_key

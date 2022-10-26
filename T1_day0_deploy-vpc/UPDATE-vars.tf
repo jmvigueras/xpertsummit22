@@ -8,8 +8,8 @@ variable "tags" {
   description = "Attribute for tag Enviroment"
   type = map(any)
   default     = {
-    Owner   = "xs22-eu-west-1-user-1"   //update with your assigned user for access AWS console
-    Name    = "user-1"                  //update with your assigned user name
+    Owner   = "xs22-eu-west-1-user-10"   //update with your assigned user for access AWS console
+    Name    = "user-10"                  //update with your assigned user name
     Project = "xs22"                    
   }
 }
@@ -26,7 +26,7 @@ variable "region" {
 // CIDR range to use for your VCP: 10.1.x.x group 1 - 10.1.1.0/24 user-1
 variable "vpc-spoke_cidr"{
   type    = string
-  default = "10.1.1.0/24"     //update with your assigned cidr
+  default = "10.1.10.0/24"     //update with your assigned cidr
 }
 
 
@@ -44,7 +44,7 @@ variable "account_id" {
 variable "externalid_token" {
   description = "ExternalId token for assume role"
   type        = string
-  default     = "jNQjUIL1MWCPOolOdkXSXNwxnQuz13"
+  default     = null
 }
 
 variable "admin_cidr" {

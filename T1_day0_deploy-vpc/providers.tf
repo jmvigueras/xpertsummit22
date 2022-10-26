@@ -18,3 +18,4 @@ provider "aws" {
     external_id  = var.externalid_token
   }
 }
+
