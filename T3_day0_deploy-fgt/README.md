@@ -48,7 +48,7 @@ cd T3_day0_deploy-fgt
 ## 4. **IMPORTANTE** Debes haber completado con éxito el laboratorio T1 para continuar
 - Las variables necesarias para este laboratorio se importan del anterior.
 - Las credendiales progrmáticas ACCESS_KEY y SECRET_KEY también se importan del lab anterior.
-- Cambiar el nombre al fichero `terraform.tfvars.example` a `terraform.tfvars`
+- (En este laboratorio NO es necesario el fichero `terraform.tfvars`)
 
 ## 6. Revisión de la estructura y de los diferentes ficheros
 (NO ES NECESARIO REALIZAR NINGUNA CONFIGURACIÓN ADICIONAL)

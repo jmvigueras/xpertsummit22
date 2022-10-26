@@ -50,8 +50,8 @@ cd T4_dayN_fgt-terraform
 
 ## 4. **IMPORTANTE** Debes haber completado con éxito el laboratorio T1 para continuar
 - Las variables necesarias para este laboratorio se importan del anterior.
-- Las credendiales progrmáticas ACCESS_KEY y SECRET_KEY también se importan del lab anterior.
-- Cambiar el nombre al fichero `terraform.tfvars.example` a `terraform.tfvars`
+- En ete laboratorio NO son necesarias Las credendiales progrmáticas ACCESS_KEY y SECRET_KEY, ya que el provider a usar es fortios, revisar fichero `provider.tf`
+- En este laboratorio NO es necesario el fichero `terraform.tfvars`
 
 ## 6. Revisión de la estructura y de los diferentes ficheros
 (NO ES NECESARIO REALIZAR NINGUNA CONFIGURACIÓN ADICIONAL)
@@ -75,19 +75,41 @@ cd T4_dayN_fgt-terraform
 - Comprobaremos que no va a realizar ningún cambio sobre la configuración anterior que hemos desplegado
 - Comprobar desde la GUI del Fortigate el correcto despligue
 
-7.4 Comprobación de conectividad a HUB
-- Comprobación de la correcta conexión al HUB (Golden VPC)
+7.4 Configuración de ruta estática
+- Revisar la documentación de [Terraform FortiOS Provider](https://registry.terraform.io/providers/fortinetdev/fortios/latest/docs) y buscar el resource correspondiente a "fortios_router_static"
+- Completar el fichero `4_static-route.tf` para generar una nueva ruta estática:
+  - La ruta estática tendrá como destino la propia red del spoke (datos para el lab vpc_cidr)
+  - El puerto destino será "port3"
+  - El GW destino será la primera dirección IP del rango asignado al puerto 3: 10.x.x.129
+- Deberías poder configurar algo como esto:
+```sh
+resource "fortios_router_static" "trname" {
+  device              = "port3"
+  dst                 = "10.x.x.0 255.255.255.0"
+  gateway             = "10.x.x.129"
+  status              = "enable"
+}
 ```
+- (Las funciones cidrhost() y cidrnetmask() de Terraform ayudan a trabajar con expresiones CIDR)
+
+7.5 Comprobación de conectividad a HUB y con servidor local
+- Comprobación de la correcta conexión al HUB (Golden VPC)
+```sh
 get router info bgp summary
 get router info routing-table bgp
 get router info bgp neighbors 10.10.20.254 ad
 get router info bgp neighbors 10.10.20.254 ro
-
-diagnose sniffer packet any '<host IPServidor>' 4
 ```
 ![diagnose routing](./images/image7-4-1.png)
 
 ![diagnose routing](./images/image7-4-2.png)
+
+- Conexión local contra el servidor
+```sh
+execute ping 10.x.x.234
+execute telnet 10.x.x.234 80
+diagnose sniffer packet any '10.x.x.234' 4
+```
 
 ## 8. Comandos Terraform para despliegue
 

@@ -45,9 +45,9 @@ cd T2_day0_deploy-vpc
 - Desde el navegador de ficheros de la parte izquierda desdplegando la carpeta corrspondiente al T2
 
 ## 4. **IMPORTANTE** - Debes haber completado con éxito el laboratorio T1 para continuar
-- Las variables necesarias para este laboratorio se importan del anterior.
-- Las credendiales progrmáticas ACCESS_KEY y SECRET_KEY también se importan del lab anterior.
-- Cambiar el nombre al fichero `terraform.tfvars.example` a `terraform.tfvars`
+- Las variables necesarias para este laboratorio se importan del anterior y se recogen el el fichero `locals.tf`
+- Las credendiales programáticas ACCESS_KEY y SECRET_KEY también se importan del lab anterior.
+- (En este laboratorio NO es necesario el fichero `terraform.tfvars`)
 
 ## 6. Revisión de la estructura y de los diferentes ficheros
 (NO ES NECESARIO REALIZAR NINGUNA CONFIGURACIÓN ADICIONAL)
