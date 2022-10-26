@@ -17,7 +17,7 @@ http://xpertsummit22.jvigueras-fortinet-site.com
 ## Resumen puesta en marcha
 
 En este entrenamiento realizaremos lo siguiente:
-- **IMPORTANTE** se debe haber completado con éxito el laboratorio T1
+- **IMPORTANTE** - debes completar con éxito el laboratorio T1 y T2 antes de continuar
 - Las variables necesarias para poder realizar el despliegue de la IaC se recogen del entrenamiento T1
 - En este lab se realizará el despligue de un Fortigate en la última versión disponible en el [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wory773oau6wq?sr=0-1&ref_=beagle&applicationId=AWSMPContessa) (7.2.2) en modo PAYG.
 - El firewall se despliega con una configuración básica para poder acceder via https y también de forma programatica via API.
@@ -71,24 +71,11 @@ cd T3_day0_deploy-fgt
 * Confirmar despligue, type `yes`.
 
 
-La salida incluye el detalle para conectar con el FortiGate:
-```sh
-Outputs:
+![terraform apply](./images/image7-1.png)
 
-Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
+Al final del despliegue tendremos una salida similar a esta
 
-Outputs:
-
-lab-server = {
-    "url"           = "https://ip:admin_port"
-    "ip"            = public_ip
-    "admin_port"    = admin_port
-    "api-token"     = api_key
-    "username"      = "admin"
-    "password"      = i-xxxxxx
-}
-
-```
+![terraform apply](./images/image7-2.png)
 
 
 ## Support

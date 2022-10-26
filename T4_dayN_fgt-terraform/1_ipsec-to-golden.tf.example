@@ -10,7 +10,6 @@ resource "fortios_vpnipsec_phase1interface" "advpn-public" {
     psksecret           = local.externalid_token
     proposal            = "aes128-sha256 aes256-sha256 aes128-sha1 aes256-sha1"
     interface           = "port2"
-
     nattraversal        = "enable"
     net_device          = "enable"
     add_route           = "disable"

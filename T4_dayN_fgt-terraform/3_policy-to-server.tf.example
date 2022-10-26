@@ -8,8 +8,8 @@
 resource "fortios_firewall_address" "h-student-server" {
   name                 = "h-student-server"
   type                 = "iprange"
-  end_ip               = data.terraform_remote_state.T2_day0_deploy-server.outputs.server["ip"]
-  start_ip             = data.terraform_remote_state.T2_day0_deploy-server.outputs.server["ip"]
+  end_ip               = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.eni-server["ip"]
+  start_ip             = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.eni-server["ip"]
   color                = "3" 
 }
 

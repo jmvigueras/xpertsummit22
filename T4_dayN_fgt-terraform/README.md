@@ -48,10 +48,22 @@ cd T4_dayN_fgt-terraform
 ```
 - Desde el navegador de ficheros de la parte izquierda desplegando la carpeta correspondiente al T4
 
-## 4. **IMPORTANTE** Debes haber completado con éxito el laboratorio T1 para continuar
-- Las variables necesarias para este laboratorio se importan del anterior.
+## 4. **IMPORTANTE** - completr con éxito el laboratorio T1 al T3 para continuar
 - En ete laboratorio NO son necesarias Las credendiales progrmáticas ACCESS_KEY y SECRET_KEY, ya que el provider a usar es fortios, revisar fichero `provider.tf`
 - En este laboratorio NO es necesario el fichero `terraform.tfvars`
+- Es necesario actualizar el fichero de variables con los datos del HUB
+
+```sh
+variable "vpc-golden_hub" {
+  type = map(any)
+  default = {
+    "bgp_asn"        = "65001"          // BGP ASN HUB central (golden VPC)
+    "advpn_pip"      = "<hub_fgt_pip>"  // Update with public IP Golden HUB
+    "advpn_net"      = "10.10.20.0/24"  // Internal CIDR range for ADVPN tunnels private
+    "sla_hck_ip"     = "10.10.40.10"    // (FUTURE USE) Not necessary in this lab
+  }
+}
+```
 
 ## 6. Revisión de la estructura y de los diferentes ficheros
 (NO ES NECESARIO REALIZAR NINGUNA CONFIGURACIÓN ADICIONAL)

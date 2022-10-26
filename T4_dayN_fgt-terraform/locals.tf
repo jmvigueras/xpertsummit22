@@ -2,7 +2,21 @@
 # - NOT CHANGE - 
 # (This variables can remain by default - imported from T1,T2 and T3)
 ##############################################################################################################
-
+// Import data from deployment T1_day0_deploy-vpc
+data "terraform_remote_state" "T1_day0_deploy-vpc" {
+  backend = "local"
+  config  = {
+    path = "../T1_day0_deploy-vpc/terraform.tfstate"
+  }
+}
+// Import data from deployment T3_day0_deploy-server
+data "terraform_remote_state" "T3_day0_deploy-fgt" {
+  backend = "local"
+  config  = {
+    path = "../T3_day0_deploy-fgt/terraform.tfstate"
+  }
+}
+// Define local variables
 locals {
   // Create local user variable for reference ipsec interface IP 
   // ej. eu-west-1-user1 will have -> 10.10.20.11)
@@ -26,30 +40,6 @@ locals {
   vpc-golden_cidr = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.vpc-golden_cidr
    // External token name -> (USED AS ADVPN PSK)
   externalid_token = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.externalid_token
-}
-
-// Import data from deployment T1_day0_deploy-vpc
-data "terraform_remote_state" "T1_day0_deploy-vpc" {
-  backend = "local"
-  config  = {
-    path = "../T1_day0_deploy-vpc/terraform.tfstate"
-  }
-}
-
-// Import data from deployment T2_day0_deploy-server
-data "terraform_remote_state" "T2_day0_deploy-server" {
-  backend = "local"
-  config  = {
-    path = "../T2_day0_deploy-server/terraform.tfstate"
-  }
-}
-
-// Import data from deployment T3_day0_deploy-server
-data "terraform_remote_state" "T3_day0_deploy-fgt" {
-  backend = "local"
-  config  = {
-    path = "../T3_day0_deploy-fgt/terraform.tfstate"
-  }
 }
 
 

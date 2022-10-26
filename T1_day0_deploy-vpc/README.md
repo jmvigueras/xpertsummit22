@@ -67,9 +67,11 @@ git clone https://github.com/jmvigueras/xpertsummit22.git
 ## 3.  Acceder a la carpeta T1_day0_deploy-vpc
 - Desde el terminal 
 ```
-cd T1_day0_deploy-vpc
+cd xpertsummit22/T1_day0_deploy-vpc
 ```
 - Desde el navegador de ficheros de la parte izquierda desdplegando la carpeta corrspondiente al T1
+
+![Open text editor](./images/image3-1.png)
 
 
 ## 4. **IMPORTANTE** Actualizar las variables necesarias para este primer laboratorio
@@ -103,9 +105,10 @@ variable "vpc-spoke_cidr"{
   default = "10.1.1.0/24"   //update with your assigned cidr
 }
 ```
+(Recuerda guardar el fichero con los cambios realizados)
 
 ## 5. **IMPORTANTE** - Actualizar las credenciales de acceso programático que usuará Terraform para el despliegue
-- Hacer doble click en el fichero **terraform.tfvars.example.tf** desde el explorador de ficheros.
+- Hacer doble click en el fichero **terraform.tfvars.example** desde el explorador de ficheros.
 - Actualizar las variables con los datos proporcionados en el ![portal formación](http://xpertsummit22.jvigueras-fortinet-site.com) 
 ```
 access_key          = "<AWS Access Key>"
@@ -115,9 +118,10 @@ externalid_token    = "<ExternalID token>"
 - Las variables deben quedar configuradas con el siguiente patrón: access_key="AZXSxxxxxx"
 - Cambiar el nombre al fichero `terraform.tfvars.example` a `terraform.tfvars`
 
+(Recuerda guardar el fichero con los cambios realizados)
+
 ## 6. Revisión de la estructura y de los diferentes ficheros 
 (NO ES NECESARIO REALIZAR NINGUNA CONFIGURACIÓN ADICIONAL)
-
 
 ## 7. **Despligue** 
 
@@ -135,9 +139,12 @@ externalid_token    = "<ExternalID token>"
   $ terraform apply
   ```
 * Confirmar despligue, type `yes`.
-* Si todo funciona correctamente se generará una salida con el resumen del plan de despligue y las variables de output configuradas:
 
 ![Terraform output](./images/image7-1.png)
+
+* Si todo funciona correctamente se generará una salida con el resumen del plan de despligue y las variables de output configuradas:
+
+![Terraform output](./images/image7-2.png)
 
 
 ## Support
