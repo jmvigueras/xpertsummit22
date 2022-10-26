@@ -1,9 +1,9 @@
 # Xpert Summit 2022
 # Automation Cloud training
 ## Objetivo del laboratorio
-El objetivo de este laboritorio es dar nociones sobre como desplegar una infraestructura relativamente compleja de hub y spoke en AWS. Además de dar idea de cómo poder operar un firewall Fortigate a través de su API. Durante el laboratio te familizaras con el entorno Terraform y como lanzar y customizar los despligues. 
+El objetivo de este laboratorio es dar nociones sobre como desplegar una infraestructura relativamente compleja de hub y spoke en AWS. Además de dar idea de cómo poder operar un firewall Fortigate a través de su API. Durante el laboratorio te familiarizaras con el entorno Terraform y como lanzar y customizaz los despliegues. 
 
-El formato del laboratorio consiste en 4 entrenamiento diferenciados, que van desde el despliegue básico de un servidor de test y el Fortigate a realizar la configuración ADVPN para poder establecer conexión el HUB central, llamado Golden VPC. 
+El formato del laboratorio consiste en 4 entrenamientos diferenciados, que van desde el despliegue básico de un servidor de test y el Fortigate a realizar la configuración ADVPN para poder establecer conexión el HUB central, llamado Golden VPC. 
 
 Los detalles necesarios para poder realizar el curso se encuentra en: 
 http://xpertsummit22.jvigueras-fortinet-site.com
@@ -19,9 +19,9 @@ http://xpertsummit22.jvigueras-fortinet-site.com
 En este entrenamiento realizaremos lo siguiente:
 - **IMPORTANTE** - debes completar con éxito el laboratorio T1 y T2 antes de continuar
 - Las variables necesarias para poder realizar el despliegue de la IaC se recogen del entrenamiento T1
-- En este lab se realizará el despligue de un Fortigate en la última versión disponible en el [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wory773oau6wq?sr=0-1&ref_=beagle&applicationId=AWSMPContessa) (7.2.2) en modo PAYG.
-- El firewall se despliega con una configuración básica para poder acceder via https y también de forma programatica via API.
-- El detalle necesario para poder acceder al fortigate se pueden obtener de la salida de Terraform cuando se realice.
+- En este lab se realizará el despliegue de un Fortigate en la última versión disponible en el [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wory773oau6wq?sr=0-1&ref_=beagle&applicationId=AWSMPContessa) en modo PAYG.
+- El firewall se despliega con una configuración básica para poder acceder via https y también de forma programática via API.
+- El detalle necesario para poder acceder al Fortigate se pueden obtener de la salida de Terraform cuando se realice.
 
 
 ## Diagram solution
@@ -50,10 +50,7 @@ cd T3_day0_deploy-fgt
 - Las credendiales progrmáticas ACCESS_KEY y SECRET_KEY también se importan del lab anterior.
 - (En este laboratorio NO es necesario el fichero `terraform.tfvars`)
 
-## 6. Revisión de la estructura y de los diferentes ficheros
-(NO ES NECESARIO REALIZAR NINGUNA CONFIGURACIÓN ADICIONAL)
-
-## 7. **Despligue** 
+## 6. **Despligue** 
 
 * Inicialización de providers y modulos:
   ```sh
@@ -71,11 +68,19 @@ cd T3_day0_deploy-fgt
 * Confirmar despligue, type `yes`.
 
 
-![terraform apply](./images/image7-1.png)
+![terraform apply](./images/image6-1.png)
 
 Al final del despliegue tendremos una salida similar a esta
 
-![terraform apply](./images/image7-2.png)
+![terraform apply](./images/image6-2.png)
+
+**Abrir la GUI del Fortigate para comprobar el acceso y cambiar la contraseña por defecto. Guardar los datos de acceso**
+
+
+## Laboratorio completado
+Pasar a lab 4: [T4_dayN_fgt-terraform](https://github.com/jmvigueras/xpertsummit22/tree/main/T4_dayN_fgt-terraform)
+
+Con este laboratorio hemos completado los despliegues de dia 0, ya tenemos en marcha nuestra infraestructura. En el siguiente laboratorio veremos como operar el día a día de un Fortigate usando Terraform. 
 
 
 ## Support

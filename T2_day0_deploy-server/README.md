@@ -1,9 +1,9 @@
 # Xpert Summit 2022
 # Automation Cloud training
 ## Objetivo del laboratorio
-El objetivo de este laboritorio es dar nociones sobre como desplegar una infraestructura relativamente compleja de hub y spoke en AWS. Además de dar idea de cómo poder operar un firewall Fortigate a través de su API. Durante el laboratio te familizaras con el entorno Terraform y como lanzar y customizar los despligues. 
+El objetivo de este laboratorio es dar nociones sobre como desplegar una infraestructura relativamente compleja de hub y spoke en AWS. Además de dar idea de cómo poder operar un firewall Fortigate a través de su API. Durante el laboratorio te familiarizaras con el entorno Terraform y como lanzar y customizaz los despliegues. 
 
-El formato del laboratorio consiste en 4 entrenamiento diferenciados, que van desde el despliegue básico de un servidor de test y el Fortigate a realizar la configuración ADVPN para poder establecer conexión el HUB central, llamado Golden VPC. 
+El formato del laboratorio consiste en 4 entrenamientos diferenciados, que van desde el despliegue básico de un servidor de test y el Fortigate a realizar la configuración ADVPN para poder establecer conexión el HUB central, llamado Golden VPC. 
 
 Los detalles necesarios para poder realizar el curso se encuentra en: 
 http://xpertsummit22.jvigueras-fortinet-site.com
@@ -17,10 +17,10 @@ http://xpertsummit22.jvigueras-fortinet-site.com
 ## Resumen puesta en marcha
 
 En este entrenamiento realizaremos lo siguiente:
-- **IMPORTANTE** se debe haber completado con éxito el lab T1 
-- Las variables necesarias para poder realizar el despliegue se actualizan con el anterior laboratorio T1_day0_deploy-pvc
-- En este lab se realizará el despligue de un servidor en la subnet de servidores desplegada en la VPC
-- El servidor de test se despliega con un servicio básico de servidor HTTP sobre el que servidor de la VPC estará lanzando las comprobaciones de conexión.
+- **IMPORTANTE** se debe haber completado con éxito el lab T1.
+- Las variables necesarias para poder realizar el despliegue se actualizan con el anterior laboratorio T1_day0_deploy-pvc.
+- En este lab se realizará el despligue de un servidor en la subnet de servidores desplegada en la VPC.
+- El servidor de test se despliega con un servicio HTTP.
 
 
 ## Diagram solution
@@ -34,13 +34,10 @@ En este entrenamiento realizaremos lo siguiente:
 ## 1. Conexión al entorno de desarrollo Cloud9
 - (Revisar pasos laboratorio T1)
 
-## 2. Clonar repositorio Git
-- (Revisar pasos laboratorio T1)
-
-## 3.  Acceder a la carpeta T2_day0_deploy-server
+## 2.  Acceder a la carpeta T2_day0_deploy-server
 - Abrir un nuevo terminal y entrar en la carpeta del laboratorio
 ```
-cd T2_day0_deploy-vpc
+cd T2_day0_deploy-server
 ```
 - Desde el navegador de ficheros de la parte izquierda desdplegando la carpeta corrspondiente al T2
 
@@ -49,10 +46,8 @@ cd T2_day0_deploy-vpc
 - Las credendiales programáticas ACCESS_KEY y SECRET_KEY también se importan del lab anterior.
 - (En este laboratorio NO es necesario el fichero `terraform.tfvars`)
 
-## 6. Revisión de la estructura y de los diferentes ficheros
-(NO ES NECESARIO REALIZAR NINGUNA CONFIGURACIÓN ADICIONAL)
 
-## 7. **Despligue** 
+## 6. **Despligue** 
 
 * Inicialización de providers y modulos:
   ```sh
@@ -69,11 +64,15 @@ cd T2_day0_deploy-vpc
   ```
 * Confirmar despligue, type `yes`.
 
-![terraform apply](./images/image7-1.png)
+![terraform apply](./images/image6-1.png)
 
 Al final del despliegue tendremos una salida similar a esta
 
-![terraform apply](./images/image7-2.png)
+![terraform apply](./images/image6-2.png)
+
+## Laboratorio completado
+Pasar a lab 3: [T3_day0_deploy-fgt](https://github.com/jmvigueras/xpertsummit22/tree/main/T3_day0_deploy-fgt)
+
 
 ## Support
 This a personal repository with goal of testing and demo Fortinet solutions on the Cloud. No support is provided and must be used by your own responsability. Cloud Providers will charge for this deployments, please take it in count before proceed.

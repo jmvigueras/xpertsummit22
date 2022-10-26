@@ -1,6 +1,13 @@
 ##############################################################################################################
 # VM LINUX server
 ##############################################################################################################
+// Create and attach the Elastic Public IPs to interface public interface
+resource "aws_eip" "eip-server_public" {
+  vpc               = true
+  network_interface = local.eni-server["id"]
+  tags = local.tags
+}
+
 // Server in subnet Servers
 resource "aws_instance" "server" {
   ami                    = data.aws_ami.server_ami-amazon.id

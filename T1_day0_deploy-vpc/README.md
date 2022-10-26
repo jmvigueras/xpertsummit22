@@ -1,9 +1,9 @@
 # Xpert Summit 2022
 # Automation Cloud training
 ## Objetivo del laboratorio
-El objetivo de este laboritorio es dar nociones sobre como desplegar una infraestructura relativamente compleja de hub y spoke en AWS. Además de dar idea de cómo poder operar un firewall Fortigate a través de su API. Durante el laboratio te familizaras con el entorno Terraform y como lanzar y customizar los despligues. 
+El objetivo de este laboratorio es dar nociones sobre como desplegar una infraestructura relativamente compleja de hub y spoke en AWS. Además de dar idea de cómo poder operar un firewall Fortigate a través de su API. Durante el laboratorio te familiarizaras con el entorno Terraform y como lanzar y customizaz los despliegues. 
 
-El formato del laboratorio consiste en 4 entrenamiento diferenciados, que van desde el despliegue básico de un servidor de test y el Fortigate a realizar la configuración ADVPN para poder establecer conexión el HUB central, llamado Golden VPC. 
+El formato del laboratorio consiste en 4 entrenamientos diferenciados, que van desde el despliegue básico de un servidor de test y el Fortigate a realizar la configuración ADVPN para poder establecer conexión el HUB central, llamado Golden VPC. 
 
 Los detalles necesarios para poder realizar el curso se encuentra en: 
 http://xpertsummit22.jvigueras-fortinet-site.com
@@ -39,10 +39,11 @@ Desde el [portal formación](http://xpertsummit22.jvigueras-fortinet-site.com) p
 - Apareceran los datos asociados para usar durante el laboratorio.
 - Acceder a la URL del portal Cloud9 que aparece en vuestros datos con el: `user` y `password`.
 
-![Student data](./images/image4-1.png)
+![Student data](./images/image1-1-1.png)
 
 - Ejemplo:
   - URL acceso: https://region.console.../cloud9/ide/c93257xxxxxxxxx
+  - accountid: xxxxxx
   - User: xs22-eu-west-1-user-1
   - Password: xxxxx
 
@@ -109,7 +110,7 @@ variable "vpc-spoke_cidr"{
 
 ## 5. **IMPORTANTE** - Actualizar las credenciales de acceso programático que usuará Terraform para el despliegue
 - Hacer doble click en el fichero **terraform.tfvars.example** desde el explorador de ficheros.
-- Actualizar las variables con los datos proporcionados en el ![portal formación](http://xpertsummit22.jvigueras-fortinet-site.com) 
+- Actualizar las variables con los datos proporcionados en el [portal formación](http://xpertsummit22.jvigueras-fortinet-site.com) 
 ```
 access_key          = "<AWS Access Key>"
 secret_key          = "<AWS Secret Key>"
@@ -120,10 +121,7 @@ externalid_token    = "<ExternalID token>"
 
 (Recuerda guardar el fichero con los cambios realizados)
 
-## 6. Revisión de la estructura y de los diferentes ficheros 
-(NO ES NECESARIO REALIZAR NINGUNA CONFIGURACIÓN ADICIONAL)
-
-## 7. **Despligue** 
+## 6. **Despligue** 
 
 * Inicialización de providers y modulos:
   ```sh
@@ -138,13 +136,21 @@ externalid_token    = "<ExternalID token>"
   ```sh
   $ terraform apply
   ```
+* Comprobar que se van a desplegar los recursos esperados en el plan.
+
+![Terraform output](./images/image6-0.png)
+
 * Confirmar despligue, type `yes`.
 
-![Terraform output](./images/image7-1.png)
+![Terraform output](./images/image6-1.png)
 
 * Si todo funciona correctamente se generará una salida con el resumen del plan de despligue y las variables de output configuradas:
 
-![Terraform output](./images/image7-2.png)
+![Terraform output](./images/image6-2.png)
+
+
+## Laboratorio completado
+Pasar a lab 2: [T2_day0_deploy-server](https://github.com/jmvigueras/xpertsummit22/tree/main/T2_day0_deploy-server)
 
 
 ## Support
