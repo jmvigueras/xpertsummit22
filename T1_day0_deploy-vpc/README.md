@@ -77,7 +77,7 @@ cd xpertsummit22/T1_day0_deploy-vpc
 ## 4. **IMPORTANTE** Actualizar las variables necesarias para este primer laboratorio
 - Esta será la única vez que será necesario actualizar estas variables.
 - Se debe actualizar de forma con los datos de cada participante para poder completar el lab
-- Los datos se deben de obtinen desde el![portal formación](http://xpertsummit22.jvigueras-fortinet-site.com) 
+- Los datos se deben de obtinen desde el [portal formación](http://xpertsummit22.jvigueras-fortinet-site.com) 
 - Hacer doble click en el fichero **UPDATE-vars.tf** desde el explorador de ficheros.
 - Actualizar las siguientes variables con los datos de cada participante.
 ```sh
