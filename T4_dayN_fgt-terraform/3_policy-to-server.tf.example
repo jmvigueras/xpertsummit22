@@ -27,7 +27,7 @@ resource "fortios_firewall_policy" "p-student-server" {
     name = "port3"
   }
   service {
-    name = "HTTP"
+    name = "ALL"
   }
   srcaddr {
     name = "all"
