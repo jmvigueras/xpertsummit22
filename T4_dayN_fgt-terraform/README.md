@@ -81,7 +81,10 @@ cd T4_dayN_fgt-terraform
   - La ruta estática tendrá como destino la propia red del spoke (datos para el lab vpc_cidr)
   - El puerto destino será "port3"
   - El GW destino será la primera dirección IP del rango asignado al puerto 3: 10.x.x.129
-- Deberías poder configurar algo como esto:
+
+<details><summary>Help</summary>
+<p>
+
 ```sh
 resource "fortios_router_static" "trname" {
   device              = "port3"
@@ -90,7 +93,9 @@ resource "fortios_router_static" "trname" {
   status              = "enable"
 }
 ```
-- (Las funciones cidrhost() y cidrnetmask() de Terraform ayudan a trabajar con expresiones CIDR)
+
+</p>
+</details>
 
 7.5 Comprobación de conectividad a HUB y con servidor local
 - Comprobación de la correcta conexión al HUB (Golden VPC)
