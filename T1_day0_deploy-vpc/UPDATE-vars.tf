@@ -37,7 +37,7 @@ variable "vpc-spoke_cidr"{
 variable "account_id" {
   description = "AWS account ID"
   type        = string
-  default     = "046412596161"
+  default     = null
 }
 
 // ExternalID Token for allow STS get token

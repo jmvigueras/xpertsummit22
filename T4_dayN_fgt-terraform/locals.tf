@@ -38,7 +38,7 @@ locals {
   region = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.region
   // CIDR range Golden VPC
   vpc-golden_cidr = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.vpc-golden_cidr
-   // External token name -> (USED AS ADVPN PSK)
+   // External token name -> (Used as ADVPN PSK)
   externalid_token = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.externalid_token
 }
 

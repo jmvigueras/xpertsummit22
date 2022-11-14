@@ -1,6 +1,6 @@
 ##############################################################################################################
 # - NOT CHANGE - terraform outputs
-# (Prepared for importing in follow trainnings)
+# (Prepared for importing in following trainings)
 ##############################################################################################################
 
 output "eni-fgt_ids" {
