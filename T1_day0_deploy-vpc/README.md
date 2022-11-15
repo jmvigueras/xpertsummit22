@@ -108,6 +108,15 @@ variable "vpc-spoke_cidr"{
 ```
 (Recuerda guardar el fichero con los cambios realizados)
 
+Nota: los rangos cidr están repartidos para cada participante y no se solpan, para lo que se ha seguido la siguiente nomenclatura:
+
+ - 10.1.x.x asignado a la region west-1
+ - 10.2.x.x asignado a la region west-2
+ - ...
+ - 10.1.0.0/24 asignado al user 0 en la region west-1
+ - 10.2.1.0/24 asignado al user 1 en la region west-2
+ - ...
+
 ## 5. **IMPORTANTE** - Actualizar las credenciales de acceso programático que usuará Terraform para el despliegue
 - Hacer doble click en el fichero **terraform.tfvars.example** desde el explorador de ficheros.
 - Actualizar las variables con los datos proporcionados en el [portal formación](http://xpertsummit22.jvigueras-fortinet-site.com) 
