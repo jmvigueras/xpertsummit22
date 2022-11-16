@@ -13,7 +13,7 @@ provider "aws" {
   access_key = local.access_key
   secret_key = local.secret_key
   assume_role {
-    role_arn     = "arn:aws:iam::${local.account_id}:role/role-${local.tags["Owner"]}"
-    external_id  = local.externalid_token
+    role_arn    = "arn:aws:iam::${local.account_id}:role/role-${local.tags["Owner"]}"
+    external_id = local.externalid_token
   }
 }

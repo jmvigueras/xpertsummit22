@@ -21,10 +21,10 @@ output "eni-fgt_ips" {
 
 output "vpc-sec_subnet-cidrs" {
   value = {
-    "public"    = aws_subnet.subnet-az1-public.cidr_block
-    "private"   = aws_subnet.subnet-az1-private.cidr_block
-    "mgmt-ha"   = aws_subnet.subnet-az1-mgmt-ha.cidr_block
-    "servers"   = aws_subnet.subnet-az1-servers.cidr_block
+    "public"  = aws_subnet.subnet-az1-public.cidr_block
+    "private" = aws_subnet.subnet-az1-private.cidr_block
+    "mgmt-ha" = aws_subnet.subnet-az1-mgmt-ha.cidr_block
+    "servers" = aws_subnet.subnet-az1-servers.cidr_block
   }
 }
 
@@ -47,8 +47,8 @@ output "key-pair_name" {
   value = aws_key_pair.user-kp[0].key_name
 }
 
-output "vpc-golden_cidr" {
-  value = var.vpc-golden_cidr
+output "vpc-hub_cidr" {
+  value = var.vpc-hub_cidr
 }
 
 output "vpc-spoke_cidr" {
@@ -56,22 +56,26 @@ output "vpc-spoke_cidr" {
 }
 
 output "externalid_token" {
-  sensitive   = true
-  value = var.externalid_token
+  sensitive = true
+  value     = var.externalid_token
 }
 
 output "account_id" {
-  sensitive   = true
-  value = var.account_id
+  sensitive = true
+  value     = var.account_id
 }
 
 output "access_key" {
-  sensitive   = true
-  value = var.access_key
+  sensitive = true
+  value     = var.access_key
 }
 
 output "secret_key" {
-  sensitive   = true
-  value = var.secret_key
+  sensitive = true
+  value     = var.secret_key
 }
 
+output "rsa-public-key" {
+  sensitive = true
+  value     = var.key-pair_rsa-public-key
+}

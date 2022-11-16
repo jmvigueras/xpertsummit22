@@ -13,7 +13,7 @@ resource "fortios_router_bgp" "bgp" {
 
     neighbor {
         ip          = local.hub_advpn_i-ip
-        remote_as   = var.vpc-golden_hub["bgp_asn"]
+        remote_as   = var.vpc-hub["bgp_asn"]
     }
     network {
         prefix  =  "${cidrhost(local.vpc-spoke_cidr,0)} ${cidrnetmask(local.vpc-spoke_cidr)}"

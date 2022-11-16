@@ -8,7 +8,7 @@ resource "aws_network_interface" "ni-fgt-port1" {
   security_groups   = [aws_security_group.nsg-vpc-sec-mgmt.id]
   private_ips       = [cidrhost(aws_subnet.subnet-az1-mgmt-ha.cidr_block, 10)]
   source_dest_check = false
-  tags = var.tags
+  tags              = var.tags
 }
 
 # Create Elastic Network Interface port2 with static IP .10
@@ -17,7 +17,7 @@ resource "aws_network_interface" "ni-fgt-port2" {
   security_groups   = [aws_security_group.nsg-vpc-sec-public.id]
   private_ips       = [cidrhost(aws_subnet.subnet-az1-public.cidr_block, 10)]
   source_dest_check = false
-  tags = var.tags
+  tags              = var.tags
 }
 
 # Create Elastic Network Interface port3 with static IP .10
@@ -26,7 +26,7 @@ resource "aws_network_interface" "ni-fgt-port3" {
   security_groups   = [aws_security_group.nsg-vpc-sec-private.id]
   private_ips       = [cidrhost(aws_subnet.subnet-az1-private.cidr_block, 10)]
   source_dest_check = false
-  tags = var.tags
+  tags              = var.tags
 }
 
 ##############################################################################################################
@@ -39,5 +39,5 @@ resource "aws_network_interface" "ni-server-port1" {
   security_groups   = [aws_security_group.nsg-vpc-sec-servers.id]
   private_ips       = [cidrhost(aws_subnet.subnet-az1-servers.cidr_block, 10)]
   source_dest_check = false
-  tags = var.tags
+  tags              = var.tags
 }

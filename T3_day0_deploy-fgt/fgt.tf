@@ -6,19 +6,19 @@
 resource "aws_eip" "eip-fgt_public" {
   vpc               = true
   network_interface = local.eni-fgt_ids["port2"]
-  tags = local.tags
+  tags              = local.tags
 }
 
 // Create and attach the Elastic Public IPs to interface management interface
 resource "aws_eip" "eip-fgt_mgmt" {
   vpc               = true
   network_interface = local.eni-fgt_ids["port1"]
-  tags = local.tags
+  tags              = local.tags
 }
 
 // Create the instance Fortigate in AZ1
 resource "aws_instance" "fgt" {
-  ami                  = data.aws_ami_ids.fgt-ond-amis.ids[1]
+  ami                  = data.aws_ami_ids.fgt-ond-amis.ids[0]
   instance_type        = "c5.xlarge"
   availability_zone    = local.region["region_az1"]
   key_name             = local.key-pair_name
@@ -44,29 +44,30 @@ data "template_file" "fgt" {
   template = file("./templates/fgt.conf")
 
   vars = {
-    fgt_id               = "${local.tags["Name"]}-fgt"
-    admin_port           = var.admin_port
-    admin_cidr           = var.admin_cidr
+    fgt_id     = "${local.tags["Name"]}-fgt"
+    admin_port = var.admin_port
+    admin_cidr = var.admin_cidr
 
-    port1_ip             = local.eni-fgt_ips["port1"]
-    port1_mask           = cidrnetmask(local.vpc-sec_subnet-cidrs["mgmt-ha"])
-    port1_gw             = cidrhost(local.vpc-sec_subnet-cidrs["mgmt-ha"],1)
-    port2_ip             = local.eni-fgt_ips["port2"]
-    port2_mask           = cidrnetmask(local.vpc-sec_subnet-cidrs["public"])
-    port2_gw             = cidrhost(local.vpc-sec_subnet-cidrs["public"],1)
-    port3_ip             = local.eni-fgt_ips["port3"]
-    port3_mask           = cidrnetmask(local.vpc-sec_subnet-cidrs["private"])
-    port3_gw             = cidrhost(local.vpc-sec_subnet-cidrs["private"],1)
+    port1_ip   = local.eni-fgt_ips["port1"]
+    port1_mask = cidrnetmask(local.vpc-sec_subnet-cidrs["mgmt-ha"])
+    port1_gw   = cidrhost(local.vpc-sec_subnet-cidrs["mgmt-ha"], 1)
+    port2_ip   = local.eni-fgt_ips["port2"]
+    port2_mask = cidrnetmask(local.vpc-sec_subnet-cidrs["public"])
+    port2_gw   = cidrhost(local.vpc-sec_subnet-cidrs["public"], 1)
+    port3_ip   = local.eni-fgt_ips["port3"]
+    port3_mask = cidrnetmask(local.vpc-sec_subnet-cidrs["private"])
+    port3_gw   = cidrhost(local.vpc-sec_subnet-cidrs["private"], 1)
 
-    api_key              = random_string.api_key.result
+    api_key        = random_string.api_key.result
+    rsa-public-key = local.rsa-public-key
   }
 }
 
 # Create new random API key to be provisioned in FortiGates.
 resource "random_string" "api_key" {
-  length                 = 30
-  special                = false
-  numeric                = true
+  length  = 30
+  special = false
+  numeric = true
 }
 
 # Get the last AMI Images from AWS MarektPlace FGT on-demand

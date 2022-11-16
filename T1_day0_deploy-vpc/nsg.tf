@@ -17,8 +17,8 @@ resource "aws_security_group" "nsg-vpc-sec-mgmt" {
   }
 
   ingress {
-    from_port   = "${var.admin_port}" # HTTPS defined admin port
-    to_port     = "${var.admin_port}"
+    from_port   = var.admin_port # HTTPS defined admin port
+    to_port     = var.admin_port
     protocol    = "tcp"
     cidr_blocks = [var.admin_cidr]
   }
@@ -135,35 +135,35 @@ resource "aws_security_group" "nsg-vpc-sec-servers" {
     from_port   = 22 # SSH port
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [var.admin_cidr,var.vpc-golden_cidr,aws_subnet.subnet-az1-private.cidr_block]
+    cidr_blocks = [var.admin_cidr, var.vpc-hub_cidr, aws_subnet.subnet-az1-private.cidr_block]
   }
 
   ingress {
-    from_port   = "80"  # HTTP
+    from_port   = "80" # HTTP
     to_port     = "80"
     protocol    = "tcp"
-    cidr_blocks = [var.admin_cidr,var.vpc-golden_cidr,aws_subnet.subnet-az1-private.cidr_block]
+    cidr_blocks = [var.admin_cidr, var.vpc-hub_cidr, aws_subnet.subnet-az1-private.cidr_block]
   }
 
   ingress {
-    from_port   = "443"  # HTTPS
+    from_port   = "443" # HTTPS
     to_port     = "443"
     protocol    = "tcp"
-    cidr_blocks = [var.admin_cidr,var.vpc-golden_cidr,aws_subnet.subnet-az1-private.cidr_block]
+    cidr_blocks = [var.admin_cidr, var.vpc-hub_cidr, aws_subnet.subnet-az1-private.cidr_block]
   }
 
   ingress {
     from_port   = 8 # the ICMP type number for 'Echo'
     to_port     = 0 # the ICMP code
     protocol    = "icmp"
-    cidr_blocks = [var.admin_cidr,var.vpc-golden_cidr,aws_subnet.subnet-az1-private.cidr_block]
+    cidr_blocks = [var.admin_cidr, var.vpc-hub_cidr, aws_subnet.subnet-az1-private.cidr_block]
   }
 
   ingress {
     from_port   = 0 # the ICMP type number for 'Echo Reply'
     to_port     = 0 # the ICMP code
     protocol    = "icmp"
-    cidr_blocks = [var.admin_cidr,var.vpc-golden_cidr,aws_subnet.subnet-az1-private.cidr_block]
+    cidr_blocks = [var.admin_cidr, var.vpc-hub_cidr, aws_subnet.subnet-az1-private.cidr_block]
   }
 
   egress {

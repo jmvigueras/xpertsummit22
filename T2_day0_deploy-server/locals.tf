@@ -5,7 +5,7 @@
 // Import data from deployment T1_day0_deploy-vpc
 data "terraform_remote_state" "T1_day0_deploy-vpc" {
   backend = "local"
-  config  = {
+  config = {
     path = "../T1_day0_deploy-vpc/terraform.tfstate"
   }
 }

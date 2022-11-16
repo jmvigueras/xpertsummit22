@@ -15,7 +15,7 @@ resource "aws_route_table" "rt-mgmt-ha" {
 
 # Create route for public subnet:
 #   default to Internet Gateway
-#   vpc-golden_cidr to Port3
+#   RFC1918 nets to Port3
 resource "aws_route_table" "rt-public" {
   vpc_id = aws_vpc.vpc-spoke.id
   route {
@@ -34,16 +34,16 @@ resource "aws_route_table" "rt-servers" {
     gateway_id = aws_internet_gateway.vpc-spoke_igw.id
   }
   route {
-    cidr_block = "192.168.0.0/16"
-    network_interface_id  = aws_network_interface.ni-fgt-port3.id
+    cidr_block           = "192.168.0.0/16"
+    network_interface_id = aws_network_interface.ni-fgt-port3.id
   }
   route {
-    cidr_block = "10.0.0.0/8"
-    network_interface_id  = aws_network_interface.ni-fgt-port3.id
+    cidr_block           = "10.0.0.0/8"
+    network_interface_id = aws_network_interface.ni-fgt-port3.id
   }
   route {
-    cidr_block = "172.16.0.0/12"
-    network_interface_id  = aws_network_interface.ni-fgt-port3.id
+    cidr_block           = "172.16.0.0/12"
+    network_interface_id = aws_network_interface.ni-fgt-port3.id
   }
   tags = var.tags
 }

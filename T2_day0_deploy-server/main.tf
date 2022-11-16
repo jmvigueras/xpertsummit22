@@ -5,15 +5,15 @@
 resource "aws_eip" "eip-server_public" {
   vpc               = true
   network_interface = local.eni-server["id"]
-  tags = local.tags
+  tags              = local.tags
 }
 
 // Server in subnet Servers
 resource "aws_instance" "server" {
-  ami                    = data.aws_ami.server_ami-amazon.id
-  instance_type          = "t2.micro"
-  key_name               = local.key-pair_name
-  user_data              = data.template_file.data-server_user-data.rendered
+  ami           = data.aws_ami.server_ami-amazon.id
+  instance_type = "t2.micro"
+  key_name      = local.key-pair_name
+  user_data     = data.template_file.data-server_user-data.rendered
   network_interface {
     device_index         = 0
     network_interface_id = local.eni-server["id"]

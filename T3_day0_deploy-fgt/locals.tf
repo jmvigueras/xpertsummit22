@@ -5,11 +5,11 @@
 // Import data from deployment T1_day0_deploy-vpc
 data "terraform_remote_state" "T1_day0_deploy-vpc" {
   backend = "local"
-  config  = {
+  config = {
     path = "../T1_day0_deploy-vpc/terraform.tfstate"
   }
 }
- // Imported value from terraform output in T1
+// Imported value from terraform output in T1
 locals {
   // Imported ACCESS and SECRET KEY
   access_key = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.access_key
@@ -30,7 +30,9 @@ locals {
   // FGT subnets
   vpc-sec_subnet-cidrs = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.vpc-sec_subnet-cidrs
   // FGT subnets
-  vpc-golden_cidr = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.vpc-golden_cidr
+  vpc-hub_cidr = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.vpc-hub_cidr
+  // RSA Keys
+  rsa-public-key = data.terraform_remote_state.T1_day0_deploy-vpc.outputs.rsa-public-key
 }
 
 

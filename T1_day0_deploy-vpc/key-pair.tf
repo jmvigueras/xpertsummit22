@@ -7,8 +7,8 @@ resource "aws_key_pair" "user-kp" {
 
 // Create random string for key-pair name
 resource "random_string" "random_str" {
-  length                 = 5
-  special                = false
-  numeric                = false
+  length  = 5
+  special = false
+  numeric = false
 }
 
